@@ -23,7 +23,5 @@
 type Props = {
   id: number;
 };
-const props = defineProps<Props>();
-
-console.log(props.id);
+defineProps<Props>();
 </script>

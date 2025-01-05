@@ -1,3 +1,4 @@
+import { authGuard } from '@/modules/auth/guards/auth.guard';
 import NotFoundPage from '@/modules/common/pages/NotFoundPage.vue';
 import HomePage from '@/modules/landing/pages/HomePage.vue';
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router';
@@ -39,6 +40,7 @@ const linkRoutes: RouteRecordRaw[] = [
   {
     path: '/pokemon/:id',
     name: 'pokemon',
+    beforeEnter: [authGuard],
     props: (route) => {
       const { id = '1' } = route.params as { id: string };
 
@@ -78,5 +80,5 @@ export const router = createRouter({
 
 export const navLinkRoutes = linkRoutes.map((route) => ({
   name: route.name,
-  path: route.path,
+  path: route.path.replace(':id', '1'),
 }));
