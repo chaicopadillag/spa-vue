@@ -13,6 +13,7 @@
           :key="route.name"
           :to="route.path"
           class="text-sm font-medium text-gray-500 hover:text-gray-700 capitalize"
+          exact-active-class="text-gray-700 bg-gray-300 rounded-md px-3 py-2"
         >
           {{ route.name }}
         </RouterLink>
